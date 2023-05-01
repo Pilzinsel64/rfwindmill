@@ -1,4 +1,4 @@
-#RF Windmills
+# RF Windmills
 
 A mod for Minecraft that adds Redstone Flux generating windmills inspired by
 IC2's equivalent.
@@ -7,11 +7,11 @@ Compatible with Minecraft version 1.7.10. Uses Thermal Expansion's materials for
 if installed, otherwise will fall back to (less interesting) vanilla versions.
 See NEI for specifics.
 
-###Bugs
+## Bugs
 
 If you find a bug, please report it on the [issue tracker!](https://github.com/Piepenguin1995/rfwindmill/issues)
 
-###Contributing
+## Contributing
 
 Gradle files are not included in the repo and must be downloaded from
 http://files.minecraftforge.net/ (the src version). Copy the `gradle` folder,
