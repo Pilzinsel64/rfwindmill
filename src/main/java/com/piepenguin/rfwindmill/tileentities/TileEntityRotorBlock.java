@@ -1,15 +1,16 @@
 package com.piepenguin.rfwindmill.tileentities;
 
-import com.piepenguin.rfwindmill.items.ModItems;
-import com.piepenguin.rfwindmill.items.RFWItem;
-import com.piepenguin.rfwindmill.lib.ModConfiguration;
-import com.piepenguin.rfwindmill.lib.Util;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import com.piepenguin.rfwindmill.items.ModItems;
+import com.piepenguin.rfwindmill.items.RFWItem;
+import com.piepenguin.rfwindmill.lib.ModConfiguration;
+import com.piepenguin.rfwindmill.lib.Util;
 
 /**
  * Tile entity for the {@link com.piepenguin.rfwindmill.blocks.RotorBlock}
@@ -28,15 +29,17 @@ public class TileEntityRotorBlock extends TileEntity {
 
     @Override
     public void updateEntity() {
-        if(worldObj.isRemote) {
+        if (worldObj.isRemote) {
             // We only need 4 directions so only the bottom two bits of
             // the metadata need to be considered
-            ForgeDirection turbineDir = Util.intToDirection(getBlockMetadata() & 3).getOpposite();
+            ForgeDirection turbineDir = Util.intToDirection(getBlockMetadata() & 3)
+                .getOpposite();
             int parentX = xCoord + turbineDir.offsetX;
             int parentY = yCoord + turbineDir.offsetY;
             int parentZ = zCoord + turbineDir.offsetZ;
-            TileEntityWindmillBlock entity = (TileEntityWindmillBlock)worldObj.getTileEntity(parentX, parentY, parentZ);
-            if(entity != null) {
+            TileEntityWindmillBlock entity = (TileEntityWindmillBlock) worldObj
+                .getTileEntity(parentX, parentY, parentZ);
+            if (entity != null) {
                 rotation += entity.getCurrentEnergyGeneration() * degreesPerRFPerTick;
             }
             scale = 1.0f;
@@ -79,6 +82,7 @@ public class TileEntityRotorBlock extends TileEntity {
     /**
      * Get the rotation of the rotor about the axis normal to the face its
      * attached to.
+     * 
      * @return Rotation in degrees of the rotor
      */
     public float getRotation() {
@@ -91,6 +95,7 @@ public class TileEntityRotorBlock extends TileEntity {
 
     /**
      * Get the tier of the rotor used to make the corresponding block.
+     * 
      * @return Integer corresponding to the rotor tier used to make the rotor
      */
     public int getType() {
@@ -100,6 +105,7 @@ public class TileEntityRotorBlock extends TileEntity {
     /**
      * Set the tier of the rotor used to make the corresponding block and
      * update the metadata of the block accordingly.
+     * 
      * @param pType Tier of the rotor
      */
     public void setType(int pType) {
@@ -112,14 +118,15 @@ public class TileEntityRotorBlock extends TileEntity {
      * configuration files. Can be forced to always display as the iron
      * texture, or (by default) takes a texture relative to the materials used
      * to make the rotor.
+     * 
      * @return Array index used by {@link RenderTileEntityRotorBlock} to
-     * identify the texture
+     *         identify the texture
      */
     public int getTexture() {
-        if(ModConfiguration.useIronRotorTexture()) {
+        if (ModConfiguration.useIronRotorTexture()) {
             return 0;
         }
-        switch(type) {
+        switch (type) {
             default:
             case 0:
                 return 0;
@@ -136,11 +143,12 @@ public class TileEntityRotorBlock extends TileEntity {
      * Converts the rotor tier into the item used to make it. Only ever four
      * rotors since high tier rotors are conditionally made based on config,
      * so this is a trivial function.
+     * 
      * @return The rotor item used to make the corresponding
-     * {@link com.piepenguin.rfwindmill.blocks.RotorBlock}
+     *         {@link com.piepenguin.rfwindmill.blocks.RotorBlock}
      */
     public RFWItem getRotorItem() {
-        switch(type) {
+        switch (type) {
             default:
             case 0:
                 return ModItems.rotor1;

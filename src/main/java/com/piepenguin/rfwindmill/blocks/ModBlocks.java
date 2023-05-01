@@ -1,7 +1,8 @@
 package com.piepenguin.rfwindmill.blocks;
 
-import com.piepenguin.rfwindmill.lib.ModConfiguration;
 import net.minecraft.block.Block;
+
+import com.piepenguin.rfwindmill.lib.ModConfiguration;
 
 /**
  * Creates {@link Block} instances of all the blocks in the mod.

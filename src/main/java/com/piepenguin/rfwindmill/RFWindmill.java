@@ -6,6 +6,7 @@ import com.piepenguin.rfwindmill.lib.Constants;
 import com.piepenguin.rfwindmill.lib.ModConfiguration;
 import com.piepenguin.rfwindmill.proxy.CommonProxy;
 import com.piepenguin.rfwindmill.recipes.ModRecipes;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;

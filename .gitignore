@@ -1,26 +1,32 @@
-# Mac
-.DS_Store
-
-# Gradle
-gradle
-gradlew
-gradlew.bat
 .gradle
-
-# Build
-/bin/
-/build/
+.settings
+/.idea/
+/.vscode/
 /run/
-
-# Eclipse
-eclipse
+/build/
+/eclipse/
 .classpath
 .project
-.settings/
-.checkstyle
-
-# IntelliJ
-.idea/
-*.ipr
+/bin/
+/config/
+/crash-reports/
+/logs/
+options.txt
+/saves/
+usernamecache.json
+banned-ips.json
+banned-players.json
+eula.txt
+ops.json
+server.properties
+servers.dat
+usercache.json
+whitelist.json
+/out/
 *.iml
+*.ipr
 *.iws
+src/main/resources/mixins.*([!.]).json
+*.bat
+*.DS_Store
+!gradlew.bat

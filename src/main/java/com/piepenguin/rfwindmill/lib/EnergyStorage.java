@@ -1,7 +1,8 @@
 package com.piepenguin.rfwindmill.lib;
 
-import cofh.api.energy.IEnergyStorage;
 import net.minecraft.nbt.NBTTagCompound;
+
+import cofh.api.energy.IEnergyStorage;
 
 /**
  * Energy storage component of a machine, stores RF and handles RF transfer.
@@ -46,7 +47,7 @@ public class EnergyStorage implements IEnergyStorage {
     }
 
     public void writeToNBT(NBTTagCompound pNbt) {
-        if(energy < 0) {
+        if (energy < 0) {
             energy = 0;
         }
         pNbt.setInteger(NBT_CAPACITY, getMaxEnergyStored());
@@ -57,9 +58,9 @@ public class EnergyStorage implements IEnergyStorage {
 
     @Override
     public int receiveEnergy(int pMaxReceive, boolean pSimulate) {
-        int energyReceived = Math.min(capacity - (int)energy, Math.min(maxReceive, pMaxReceive));
+        int energyReceived = Math.min(capacity - (int) energy, Math.min(maxReceive, pMaxReceive));
 
-        if(!pSimulate) {
+        if (!pSimulate) {
             energy += energyReceived;
         }
 
@@ -68,9 +69,9 @@ public class EnergyStorage implements IEnergyStorage {
 
     @Override
     public int extractEnergy(int pMaxExtract, boolean pSimulate) {
-        int energyExtracted = Math.min((int)energy, Math.min(maxExtract, pMaxExtract));
+        int energyExtracted = Math.min((int) energy, Math.min(maxExtract, pMaxExtract));
 
-        if(!pSimulate) {
+        if (!pSimulate) {
             energy -= energyExtracted;
         }
 
@@ -80,31 +81,29 @@ public class EnergyStorage implements IEnergyStorage {
     public void modifyEnergyStored(float pEnergy) {
         energy += pEnergy;
 
-        if(energy > capacity) {
+        if (energy > capacity) {
             energy = capacity;
-        }
-        else if(energy < 0) {
+        } else if (energy < 0) {
             energy = 0;
         }
     }
 
     @Override
     public int getEnergyStored() {
-        return (int)energy;
+        return (int) energy;
     }
 
     public void setEnergyStored(int pEnergy) {
         energy = pEnergy;
-        if(energy > capacity) {
+        if (energy > capacity) {
             energy = capacity;
-        }
-        else if(energy < 0) {
+        } else if (energy < 0) {
             energy = 0;
         }
     }
 
     public int getExtract() {
-        return Math.min(maxExtract, (int)energy);
+        return Math.min(maxExtract, (int) energy);
     }
 
     @Override
@@ -138,4 +137,3 @@ public class EnergyStorage implements IEnergyStorage {
     }
 
 }
-

@@ -1,9 +1,11 @@
 package com.piepenguin.rfwindmill.items;
 
-import com.piepenguin.rfwindmill.lib.Constants;
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+
+import com.piepenguin.rfwindmill.lib.Constants;
+
+import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
  * Abstract class which all items from this mod should extend. Adds them to

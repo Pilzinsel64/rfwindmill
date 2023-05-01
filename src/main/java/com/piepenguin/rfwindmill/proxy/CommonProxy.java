@@ -2,6 +2,7 @@ package com.piepenguin.rfwindmill.proxy;
 
 import com.piepenguin.rfwindmill.tileentities.TileEntityRotorBlock;
 import com.piepenguin.rfwindmill.tileentities.TileEntityWindmillBlock;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy {

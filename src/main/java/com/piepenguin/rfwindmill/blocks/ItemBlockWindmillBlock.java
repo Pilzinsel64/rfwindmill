@@ -18,7 +18,7 @@ public class ItemBlockWindmillBlock extends ItemBlock {
     @Override
     public String getUnlocalizedName(ItemStack pItemStack) {
         String name;
-        switch(pItemStack.getItemDamage()) {
+        switch (pItemStack.getItemDamage()) {
             default:
             case 0:
                 name = "basic";
